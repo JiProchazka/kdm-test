@@ -14,3 +14,5 @@ On the homepage create a simple menu as an unordered list (horizontaly oriented)
 For each model create a whole CRUD (Create, Read, Update, Delete) without a Show page. On the index page for `Product` create an ajax search field and filter the table.
 
 Please generate 200 products and 5 orders for 2 different users by the Seed, so we can easily run the project and have some data to try.
+
+Include tests.
