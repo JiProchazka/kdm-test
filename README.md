@@ -17,8 +17,8 @@ only strings in format of `three big letters-three numbers` (i.e.`HJS-098`). Wri
 When saving `Order` or `Product` model, write a message to Rails log
 about it, such as: 'Saving product 12345.'
 
-When you create a new `Product`, all `User`s should receive an email
-with it's description ('an advertisement').
+`Product` should have field `description`. When you create a new `Product`, all `User`s should receive an email
+with the `decription` of newly created `Product`.
 
 Please supply a seed script that generates at least 100 products and 5
 orders for 2 different users by the Seed, so we can easily run the
