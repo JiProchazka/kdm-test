@@ -12,7 +12,7 @@ can have multiple products, user can have multiple orders.
 # Model
 
 `Product` should have a field called `product_name` which should accept
-only strings in format of `three big letters-three numbers` (i.e.`HJS-098`).
+only strings in format of `three big letters-three numbers` (i.e.`HJS-098`). Write test cases for that (Rspec or MiniTest, does not matter).
 
 When saving `Order` or `Product` model, write a message to Rails log
 about it, such as: 'Saving product 12345.'
