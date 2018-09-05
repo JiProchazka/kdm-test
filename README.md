@@ -1,7 +1,8 @@
 # KDM Test
 
 Hi, this is a simple Ruby on Rails test. Take as much time as you
-need, do it as best as you can. Please commit small steps and often.
+need, do it as best as you can. Please fork it and commit small steps and often.
+At the end create a pull request.
 
 ## Assesment
 
