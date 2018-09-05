@@ -10,7 +10,7 @@ Create a new RoR project, using `javascript` instead of
 `coffeescript`. Create 3 models - `Order`, `User` and `Product`. Order
 can have multiple products, user can have multiple orders.
 
-# Model
+## Model
 
 `Product` should have a field called `product_name` which should accept
 only strings in format of `three big letters-three numbers` (i.e.`HJS-098`). Write test cases for that (Rspec or MiniTest, does not matter).
@@ -34,7 +34,7 @@ create a whole CRUD (Create, Read, Update, Delete) without a Show
 page. On the index page for `Product` create an AJAX search field and
 filter the table, with pagination.
 
-# Frontend
+## Frontend
 
 Use Bootstrap (3 or 4). You can restyle it a bit or add some eye-candy to show us your SCSS skills.
 
