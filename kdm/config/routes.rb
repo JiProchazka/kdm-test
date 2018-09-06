@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'products/new'
+
+  get 'products/update'
+
+  get 'products/create'
+
+  get 'products/delete'
+
   get 'sessions/new'
 
 	root 'welcome#index' 
