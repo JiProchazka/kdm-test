@@ -1,0 +1,12 @@
+%h1 Session
+
+=form_tag sessions_path do
+  %div
+    =label_tag 'email', 'Email'
+    =text_field_tag 'email'
+    %br
+  %div
+    =label_tag 'password', 'Password'
+    =password_field_tag 'password'
+  %div
+    =submit_tag 'Log'
