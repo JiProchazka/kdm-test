@@ -1,0 +1,19 @@
+%h1 Products
+=form_with scope: :product, url: products_path, local: true do |p|
+  -if @product.errors.any?
+    =pluralize(@product.errors.count, 'error')
+    prohibited this product from being saved:
+    %ul
+      =@product.errors.full_messages.each do |msg|
+        %li
+          =msg
+  %div
+    =p.label :product_name
+    %br
+    =p.text_field :product_name
+  %div
+    =p.label :description
+    %br
+    =p.text_field :description
+  %div
+    =p.submit 'Create'
