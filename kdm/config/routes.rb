@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 	resources :users, except: [:show]
 
 	resources :products, except: [:show]
-	get 'products/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

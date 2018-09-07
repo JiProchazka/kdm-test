@@ -1,13 +1,3 @@
 %h1 Products
-=form_with scope: :product, url: products_path, local: true do |p|
-  =render 'errors'
-  %div
-    =p.label :product_name
-    %br
-    =p.text_field :product_name
-  %div
-    =p.label :description
-    %br
-    =p.text_field :description
-  %div
-    =p.submit 'Create'
+=render 'form'
+=link_to 'index', products_path

@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
 		if @product.save
 			flash[:notice] = "New product create"
-			redirect_to products_index_path
+			redirect_to products_path
 		else
 			flash.now[:alert] = "Something Gone wrong"
 			render new_product_path
@@ -23,11 +23,15 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 
 		if @product.update(product_params)
-			redirect_to products_index_path
+			redirect_to products_path
 		else
 			render 'edit'
 		end
   end
+	
+	def edit
+		@product = Product.find(params[:id])
+	end
 
   def delete
   end
