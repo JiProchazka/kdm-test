@@ -1,0 +1,6 @@
+=form_for @order do |order|
+	=order.label :name
+	%br
+	=order.text_field :name
+	%br
+	=order.submit 'Create' 
