@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 		@order.user_id = current_user.id
 		if @order.save
 			flash[:notice] = "New order create"
+			logger.debug "Order #{@order.name} created"
 			redirect_to orders_path
 		else
 			flash.now[:alert] = "Something Gone wrong"

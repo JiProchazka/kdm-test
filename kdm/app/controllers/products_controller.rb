@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
 
 		if @product.save
 			flash[:notice] = "New product create"
+			logger.debug "Product #{@product.product_name} created"
 			redirect_to products_path
 		else
 			flash.now[:alert] = "Something Gone wrong"
