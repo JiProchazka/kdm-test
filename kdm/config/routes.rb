@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'orders/index'
+
+  get 'orders/new'
+
+  get 'orders/create'
+
+  get 'orders/update'
+
+  get 'orders/destroy'
+
   get 'order_items/index'
 
   get 'order_items/new'
