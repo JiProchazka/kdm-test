@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180910163208) do
+ActiveRecord::Schema.define(version: 20180910223326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "order_items", force: :cascade do |t|
-    t.bigint "order_id"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "quantity"
-    t.index ["order_id"], name: "index_order_items_on_order_id"
-    t.index ["product_id"], name: "index_order_items_on_product_id"
-  end
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
@@ -47,7 +37,5 @@ ActiveRecord::Schema.define(version: 20180910163208) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
 end
