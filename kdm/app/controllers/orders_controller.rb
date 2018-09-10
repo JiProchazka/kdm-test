@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
-		@orders = Order.all
-  end
+		@orders = Order.order(:created_at)
+	end
 
   def new
   	@order = Order.new
@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
   def create
 		@order = Order.create(order_params)
-
+		@order.user_id = current_user.id
 		if @order.save
 			flash[:notice] = "New order create"
 			redirect_to orders_path
@@ -42,6 +42,6 @@ class OrdersController < ApplicationController
 
 	private
 	def order_params
-		params.require(:order).permit(:user_id)
+		params.require(:order).permit(:user_id, :name)
 	end
 end 
