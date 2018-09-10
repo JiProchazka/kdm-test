@@ -16,16 +16,26 @@ class OrderItemsController < ApplicationController
   end
 
   def index
+		@order_items = OrderItem.all
   end
 
   def update
+		@order_item = OrderItem.find(params[:id])
+
+		if @order_item.update(order_item_params)
+				redirect_to root_path
+		else
+				render 'edit'
+		end
   end
 
   def destroy
+		@order_item = OrderItem.find(params[:id])
+		@order_item.destroy
+    
+		redirect_to root_path
   end
-
-	private
-
+	
 	def order_item_params
 		params.require(:order_item).permit(:product_id, :order_id)
 	end
