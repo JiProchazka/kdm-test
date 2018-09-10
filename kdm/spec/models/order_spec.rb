@@ -1,15 +1,5 @@
-describe Order, :type => :model do
-	subject { described_class.new( user_id: '1')}
-	
-	describe 'Validations' do
-						
-		it 'is valid with user_id' do
-			expect(subject).to be_valid
-		end
+require 'rails_helper'
 
-		it 'is not valid without user_id' do
-			subject.user_id = nil
-			expect(subject).not_to be_valid
-		end
-	end
+RSpec.describe Order, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
