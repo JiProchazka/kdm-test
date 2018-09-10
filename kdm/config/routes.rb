@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'order_items/index'
+
+  get 'order_items/new'
+
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
 	root 'welcome#index' 
   get 'welcome/index'
 	
