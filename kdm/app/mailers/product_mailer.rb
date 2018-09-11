@@ -4,6 +4,7 @@ class ProductMailer < ApplicationMailer
   def new_product(user, description)
 		@description = description
 		@user = user
-		mail to: @user.email
+		
+			mail to: @user.email
   end
 end

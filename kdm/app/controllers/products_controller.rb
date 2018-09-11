@@ -9,11 +9,15 @@ class ProductsController < ApplicationController
 
   def create
 		@product = Product.create(product_params)
-		@user = current_user
+		@users = User.all
 		if @product.save
 			flash[:notice] = "New product create"
 			logger.debug "Product #{@product.product_name} created"
-			ProductMailer.new_product(@user, @product.description).deliver
+
+			@users.each do |user|
+				ProductMailer.new_product(user, @product.description).deliver
+			end
+
 			redirect_to products_path
 		else
 			flash.now[:alert] = "Something Gone wrong"
