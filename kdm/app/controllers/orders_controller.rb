@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 		@order = Order.create(order_params)
 		@order.user_id = current_user.id
 		if @order.save
-			flash[:notice] = "New order create"
+			flash[:notice] = "New order created"
 			logger.debug "Order #{@order.name} created"
 			redirect_to orders_path
 		else
@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 			render 'edit'
 		end
   end
-
+	
 	def edit
 		@order = Order.find(params[:id])
 	end
@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
   def destroy
 		@order = Order.find(params[:id])
 		@order.destroy
-    
+
 		redirect_to orders_path
   end
 
@@ -45,4 +45,4 @@ class OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(:user_id, :name)
 	end
-end
+end 
