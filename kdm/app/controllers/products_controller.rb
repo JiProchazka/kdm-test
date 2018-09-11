@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def new
   	@product = Product.new
+		@orders = Order.order(:name)
   end
 
   def create
