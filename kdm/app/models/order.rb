@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-	has_many :products, dependent: :destroy
+	has_many :products
 
 	validates :name, presence: true, uniqueness: true
 end

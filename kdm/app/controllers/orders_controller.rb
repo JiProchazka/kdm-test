@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 			render 'edit'
 		end
   end
-	
+
 	def edit
 		@order = Order.find(params[:id])
 	end
@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
   def destroy
 		@order = Order.find(params[:id])
 		@order.destroy
-
+    
 		redirect_to orders_path
   end
 
@@ -45,4 +45,4 @@ class OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(:user_id, :name)
 	end
-end 
+end
