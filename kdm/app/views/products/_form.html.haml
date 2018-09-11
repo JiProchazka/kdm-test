@@ -1,6 +1,8 @@
 =form_for @product, local: true do |p|
   =render 'errors'
   %div
+		=p.collection_select(:order_id, State.all, :id, :name, { :prompt => 'Select a State', :selected => @address.state_id }, { class: 'form-control' })
+  %div
     =p.label :product_name
     %br
     =p.text_field :product_name
@@ -8,6 +10,4 @@
     =p.label :description
     %br
     =p.text_field :description
-  %div
     =p.submit 'Create'
- 

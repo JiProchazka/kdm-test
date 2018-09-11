@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
 
   def new
   	@product = Product.new
-		@orders = Order.order(:name)
   end
 
   def create
@@ -44,6 +43,6 @@ class ProductsController < ApplicationController
 
 	private
 	def product_params
-		params.require(:product).permit(:product_name, :description)
+		params.require(:product).permit(:product_name, :description, :order_id)
 	end
 end
