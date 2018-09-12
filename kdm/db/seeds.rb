@@ -1,15 +1,26 @@
-Order.create!([
-  {user_id: 5, name: "Piotrek first Order"},
-  {user_id: 5, name: "second Piotrek Order"},
-  {user_id: 6, name: "Carlos Jobim Pack"},
-  {user_id: 6, name: "Carlo Pack"},
-  {user_id: 7, name: "Order from Miles"}
-])
-Product.create!([
-  {product_name: "MKL-987", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", order_id: 9}
-])
-User.create!([
-  {email: "piotrek.wydrzycki@gmail.com", password_digest: "$2a$10$gAg7Ol/ERJLMk/R3fLoxWuWQwIQylZrWH57Tg1yNhH4rFlR4TCuNm"},
-  {email: "carlos.jobim@alfabet.com", password_digest: "$2a$10$LFy6YXPja3XaMC1BnPKqZuXeVfVOHcvlOQDjvCiSTGCwyLNqmJRx6"},
-  {email: "miles.davis@yahoo.com", password_digest: "$2a$10$WJv9MgrCmRWH9ksBAtqkGOtFKmEmqzorg0Qqr1dlfE88gigFzHTcG"}
-])
+Product.delete_all
+Order.delete_all
+User.delete_all
+
+
+piotr = User.create!(	{ email: 'piotr.wydrzycki@gmail.com', password: 'password'} )
+miles = User.create!(	{ email: 'miles.davis@yahoo.com', password: 'password' })
+carlos = User.create!(	{ email: 'carlos.jobim@google.com', password: 'password' })
+
+order1 = Order.create!({user_id: piotr.id, name: "Piotrek first Order"})
+order2 = Order.create!({user_id: piotr.id, name: "second Piotrek Order"})
+order3 = Order.create!({user_id: carlos.id, name: "Carlos Jobim Pack"})
+order4 = Order.create!({user_id: carlos.id, name: "Carlo Pack"})
+order5 = Order.create!({user_id: miles.id, name: "Order from Miles"})
+
+
+10.times {|x| Product.create(order_id: order1.id, product_name: "PKP-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order2.id, product_name: "RTV-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order3.id, product_name: "AGD-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order4.id, product_name: "FBI-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order5.id, product_name: "CIA-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order5.id, product_name: "KGB-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order4.id, product_name: "KRK-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order3.id, product_name: "WWA-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order2.id, product_name: "HEX-00#{x}", description: "description #{x}")}
+10.times {|x| Product.create(order_id: order1.id, product_name: "SLD-00#{x}", description: "description #{x}")}
