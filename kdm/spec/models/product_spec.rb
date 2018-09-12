@@ -1,7 +1,8 @@
 describe Product, :type => :model do
-		subject {
-			described_class.new(id: '2', description: 'some description', created_at: Time.now, updated_at: Time.now)
-		}
+				user = User.create( email: 'piotr@gmail.com', password: 'password', id: '1')	
+				order = Order.create( name: 'name', user_id: user.id, id: '1')
+				subject {	described_class.new( description: 'some description', order_id: order.id) }
+
 	it 'is not valid when empty'do
 		expect(Product.new).to be_invalid
 	end

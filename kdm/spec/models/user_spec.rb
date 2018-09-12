@@ -1,3 +1,4 @@
+require 'rails_helper'
 describe User, :type => :model do
 		subject { described_class.new(password: "password", email: "example@ruby.com") }
 		
