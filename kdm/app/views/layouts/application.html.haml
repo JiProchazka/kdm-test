@@ -1,17 +1,14 @@
 !!! 5
 %html
 %head
-	%title KDM - Test 
+	%title KDM - Test
 	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
 	= javascript_include_tag 'application', 'data-turbolinks-track' => true
 	= csrf_meta_tags
 
 %body
-=render 'partials/logging'
-%br
-=link_to 'products', new_product_path
-||
-=link_to 'Orders', orders_path
-=notice
-=alert
-= yield
+
+.nav.navbar-expand-lg.navbar-light.bg-light
+	=render 'partials/navbar'
+	
+=yield

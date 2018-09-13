@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
-		@products = Product.all
-  end
+		@products = Product.where(["product_name LIKE ?", "%#{params[:search]}%"])
+	end
 
   def new
   	@product = Product.new
