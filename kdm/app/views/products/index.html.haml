@@ -1,6 +1,7 @@
 .container-fluid
 	%h2.center
 		=link_to "Create New Product", new_product_path
+		
 	.col-lg-4.offset-md-4
 		=form_tag products_path, :method => 'get' do
 			.form-group.form-control-md
@@ -22,3 +23,6 @@
 					=link_to 'delete', product_path(product),
 						method: :delete,
 						data: { confirm: 'Are you sure?'}
+
+	.col-lg-2.offset-md-5
+		=will_paginate @products

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-		@products = Product.where(["product_name LIKE ?", "%#{params[:search]}%"])
+					@products = Product.where(["product_name LIKE ?", "%#{params[:search]}%"]).paginate(:page =>params[:page], :per_page => 20)
 	end
 
   def new
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
 			render 'edit'
 		end
   end
-	
+
 	def edit
 		@product = Product.find(params[:id])
 	end
