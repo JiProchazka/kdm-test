@@ -1,18 +1,22 @@
-%h2
-	=link_to 'Create New Order', new_order_path
-%h1 List of all the Orders
--@orders.each do |order|
-	%br
+.container-fluid.center
 	%h2
-		=order.name
-	%br
-	%h3 
-		This Order is for:
-		=order.user.email
-	%br
-	-if order.user_id == current_user.id
-		=link_to 'edit', edit_order_path(current_user)
-		||
-		=link_to 'delete', order_path(order[:id]),
-						method: :delete,
-						data: {confirm: "Delete order?"}
+		=link_to 'Create New Order', new_order_path
+	%h1 List of all the Orders
+	-@orders.each do |order|
+		.col-md-4.offset-md-4
+			.frame
+				%br
+				%h2
+					=order.name
+				%br
+				%h3
+					This Order is for:
+					=order.user.email
+				%br
+					%h6
+						-if order.user_id == current_user.id
+							=link_to 'edit', edit_order_path(current_user)
+							||
+							=link_to 'delete', order_path(order[:id]),
+											method: :delete,
+											data: {confirm: "Delete order?"}

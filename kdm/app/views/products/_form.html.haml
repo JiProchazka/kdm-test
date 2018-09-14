@@ -1,13 +1,10 @@
-=form_for @product, local: true do |p|
-  =render 'errors'
-  %div
-		=p.collection_select(:order_id, State.all, :id, :name, { :prompt => 'Select a State', :selected => @address.state_id }, { class: 'form-control' })
-  %div
-    =p.label :product_name
-    %br
-    =p.text_field :product_name
-  %div
-    =p.label :description
-    %br
-    =p.text_field :description
-    =p.submit 'Create'
+.frame
+  = form_for @product, local: true do |p|
+    = render 'errors'
+    .form-group.form-control-md
+      = p.collection_select(:order_id, Order.all, :id, :name, { :prompt => 'Select a Order', :selected => @product.order_id }, { class: 'form-control' })
+    .form-group.form-control-md
+      = p.text_field :product_name, placeholder: "product_name"
+    .form-group.form-control-md
+      = p.text_field :description, placeholder: "description"
+    = p.submit 'Create', class: "btn"

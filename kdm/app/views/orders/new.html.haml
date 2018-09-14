@@ -1,8 +1,6 @@
 .container-fluid
-	.col-lg-4.col-lg-offset-4
-		.frame.center
-			%h2 New Order
-			%br
-			%h3 Order for #{current_user.email}
-			%br
-			=render 'form'
+	.row
+		.col-lg-4.offset-md-4
+			.center
+				%h2 New Order
+				=render 'form'

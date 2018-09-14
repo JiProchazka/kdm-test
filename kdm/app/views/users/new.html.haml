@@ -1,18 +1,14 @@
-%h1 New User
-
-=form_for @user do |f|
-	=render 'errors'
-  %div
-    =f.label :email
-    %br
-    =f.text_field :email
-  %div
-    =f.label :password
-    %br
-    =f.password_field :password
-  %div
-    =f.label :password_confirmation
-    %br
-    =f.password_field :password_confirmation
-  %div
-    =f.submit
+.container-fluid
+	.row
+		.col-lg-4.offset-md-4
+			%h1.center New User
+			.frame.center
+				=form_for @user do |f|
+					=render 'errors'
+					.form-group.form-control-md
+						=f.text_field :email, placeholder: 'email'
+					.form-group.form-control-md
+						=f.password_field :password, placeholder: 'password'
+					.form-group.form-control-md
+						=f.password_field :password_confirmation, placeholder: 'confirm password'
+					=f.submit 'Submit', class:"btn"
