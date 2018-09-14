@@ -27,9 +27,11 @@
 		%table.frame
 			%thread
 				%tr.h2
-					%th Name
-					%th Description
-					%th Order name
+					%th
+						=link_to "Name", sort: "product_name"
+					%th
+						=link_to "Description", sort: "description"
+					%th Order Name
 					%th options
 			%tbody
 				-@products.each do |product|

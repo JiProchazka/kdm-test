@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-      @products = Product.where(["product_name LIKE ?", "%#{params[:search]}%"]).paginate(:page =>params[:page], :per_page => 20)
+      @products = Product.where(["product_name LIKE ?", "%#{params[:search]}%"]).paginate(:page =>params[:page], :per_page => 20).order(params[:sort])
 	end
 
   def new
