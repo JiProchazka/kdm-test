@@ -7,7 +7,7 @@ describe Product, :type => :model do
 		expect(Product.new).to be_invalid
 	end
 
-	it 'is valid with format: /[A-Z]{3}[-][0-9]{3}/' do
+	it 'is valid with format: /\A[A-Z]{3}[-][0-9]{3}\z/' do
 		subject.product_name = 'JBD-007'
 		expect(subject).to be_valid
 	end
@@ -28,7 +28,7 @@ describe Product, :type => :model do
   end
 
 	it 'is not valid with four digits' do
-		subject.product_name = 'pcv-7382'
+		subject.product_name = 'PRT-7382'
 		expect(subject).to be_invalid
 	end
 	
