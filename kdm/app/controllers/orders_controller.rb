@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 			logger.debug "Order #{@order.name} created"
 			redirect_to orders_path
 		else
-			flash.now[:alert] = "Something Gone wrong"
+			flash[:alert] = "Something Gone wrong"
 			render new_order_path
 		end
   end
@@ -25,7 +25,9 @@ class OrdersController < ApplicationController
 
 		if @order.update(order_params)
 			redirect_to orders_path
+			flash[:notice] = "Order updated"
 		else
+			flash[:alert] = "Something went wrong"
 			render 'edit'
 		end
   end
@@ -37,7 +39,7 @@ class OrdersController < ApplicationController
   def destroy
 		@order = Order.find(params[:id])
 		@order.destroy
-
+		flash[:alert] = "Order #{@order.name} destroyed"
 		redirect_to orders_path
   end
 

@@ -15,12 +15,28 @@ class UsersController < ApplicationController
 		end
   end
 
-  def update
+	def update
+		@user = current_user
+
+		if @user.update(user_params)
+			flash[:notice] = "User updated"
+		  redirect_to new_session_path
+		else
+			render 'new'
+		end
   end
 
-  def delete
+	def edit
+		@user = current_user
+	end
+
+  def destroy
+		@user = current_user
+		@user.destroy
+		flash[:alert] = "User succesfull deleted"
+		redirect_to new_session_path
   end
-	
+
 	private
 
 	def user_params

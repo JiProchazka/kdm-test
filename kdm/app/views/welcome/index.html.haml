@@ -1,12 +1,28 @@
 -if current_user
   .container
-    .col-md-3-if 
-      %h3 Your Orders:
-      -current_user.orders.all.each do |order|
-        %ul
-          %li.h3 #{order.name}, created: #{order.created_at.strftime("%Y-%m-%d")}
-          -order.products.each do |product|
-            %ul
-              %li.h4 #{product.product_name},
-              %h5 Description: #{product.description},  created: #{order.created_at.strftime("%Y-%m-%d at: %I:%M%P")}
-					
+    .row
+      .offset-sm-3.h5
+        =link_to 'delete this user', user_path(current_user),
+							method: :delete,
+							data: {confirm: "Do you want to delete your account?"}
+      .offset-sm-1.h5
+        =link_to 'update this user', edit_user_path(current_user)
+    .offset-md-2
+      -if current_user.orders.any?
+        %h1 Your Orders:
+        -current_user.orders.all.each do |order|
+          %ul
+            %li.h3 #{order.name}
+            -order.products.each do |product|
+              %ul.frame
+                %li.h4 #{product.product_name},
+                %h5 Description: #{product.description}
+                %br #{order.created_at.strftime("%Y-%m-%d at: %I:%M%P")}
+      -else
+        .centre.h1
+          %br.br.br.br
+          =link_to ">>>>>>Create new Oder<<<<<<", new_order_path
+-else
+  .offset-4-sm
+    .br.br.br.br
+      .center.h1 >>>>>Login or create new account<<<<<<

@@ -9,5 +9,9 @@
 %body
 .nav.navbar-expand-lg.navbar-light.bg-light
 	=render 'partials/navbar'
-	
+	%br.br.br
+.center	
+	-flash.each do |key, msg|
+		%div{:class =>  "alert  alert-#{key} fadeout"}
+			=msg
 =yield

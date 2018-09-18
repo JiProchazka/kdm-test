@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 		@product = Product.create(product_params)
 		@users = User.all
 		if @product.save
-			flash[:notice] = "New product create"
+			flash[:notice] = "New product #{@product.product_name} created"
 			logger.debug "Product #{@product.product_name} created"
 
 			@users.each do |user|
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
 			redirect_to products_path
 		else
-			flash.now[:alert] = "Something Gone wrong"
+			flash[:alert] = "Something went wrong"
 			render new_product_path
 		end
   end
@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 
 		if @product.update(product_params)
+			flash[:notice] = "Product updated"
 			redirect_to products_path
 		else
 			render 'edit'
@@ -50,7 +51,7 @@ class ProductsController < ApplicationController
   def destroy
 		@product = Product.find(params[:id])
 		@product.destroy
-
+		flash[:alert] = "#{@product.product_name} destroyed"
 		redirect_to products_path
   end
 
