@@ -2,10 +2,14 @@ Product.delete_all
 Order.delete_all
 User.delete_all
 
+SEEDS_USERS = %w[ piotr.wydrzycki@gmail.com, miles.davis@yahoo.com, carlos.jobim@google.com]
 
+# SEEDS_USERS.each do |user|
+#   User.create(email: user, password: "password")
 piotr = User.create!(	{ email: 'piotr.wydrzycki@gmail.com', password: 'password'} )
 miles = User.create!(	{ email: 'miles.davis@yahoo.com', password: 'password' })
 carlos = User.create!(	{ email: 'carlos.jobim@google.com', password: 'password' })
+
 
 order1 = Order.create!({user_id: piotr.id, name: "Piotrek first Order"})
 order2 = Order.create!({user_id: piotr.id, name: "second Piotrek Order"})

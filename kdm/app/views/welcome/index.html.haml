@@ -1,0 +1,12 @@
+-if current_user
+  .container
+    .col-md-3-if 
+      %h3 Your Orders:
+      -current_user.orders.all.each do |order|
+        %ul
+          %li.h3 #{order.name}, created: #{order.created_at.strftime("%Y-%m-%d")}
+          -order.products.each do |product|
+            %ul
+              %li.h4 #{product.product_name},
+              %h5 Description: #{product.description},  created: #{order.created_at.strftime("%Y-%m-%d at: %I:%M%P")}
+					

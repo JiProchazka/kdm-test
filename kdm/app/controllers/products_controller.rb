@@ -1,7 +1,15 @@
 class ProductsController < ApplicationController
   def index
-      @products = Product.where(["product_name LIKE ?", "%#{params[:search]}%"]).paginate(:page =>params[:page], :per_page => 20).order(params[:sort])
-	end
+    if params[:search]
+      @products = Product.options_sortable(params)
+			respond_to do |format|
+				format.js{render partial: "search-results"}
+        format.html
+			end
+		else
+			@products =	Product.all.paginate(:page =>params[:page], :per_page => 20)
+		end
+  end
 
   def new
   	@product = Product.new

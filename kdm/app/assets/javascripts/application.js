@@ -16,3 +16,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+//$("#products").html("<%= escape_javascript(render("products")) %>");

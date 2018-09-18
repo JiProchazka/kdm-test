@@ -1,0 +1,31 @@
+.col-md-8.offset-md-2
+	%table.frame
+		%thread
+			%tr.h2
+				%th
+					=link_to "Name", sort: "product_name"
+				%th
+					=link_to "Description", sort: "description"
+				%th Order Name
+				%th options
+		%tbody
+			-@products.each do |product|
+				%tr
+					%th.h4
+						=product.product_name
+					%th
+						=product.description
+					%th
+						=product.order.name
+					-if product.order.user == current_user
+						%th
+							=link_to 'edit', edit_product_path(product)
+							||
+							=link_to 'delete', product_path(product), remote: true,
+												method: :delete,
+												data: { confirm: 'Are you sure?'}
+					-else
+						%th
+							no permission
+	.col-lg-2.offset-md-5
+		=will_paginate(@product)

@@ -7,4 +7,8 @@ class Product < ApplicationRecord
 	validates :description, presence: true,
 					   length: { minimum: 5 }
 
+
+	def self.options_sortable(params)
+		where(["product_name LIKE ?", "%#{params[:search]}%"]).paginate(:page =>params[:page], :per_page => 20).order(params[:sort])
+	end
 end
