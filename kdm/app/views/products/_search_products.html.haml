@@ -1,0 +1,5 @@
+.col-lg-4.offset-md-4
+  =form_tag(products_path, :method => "get", remote: true) do
+    .form-group.form-control-md
+      =text_field_tag :search, params[:search], placeholder: 'Enter search text'
+      =submit_tag 'search', class: "btn"

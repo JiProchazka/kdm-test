@@ -1,0 +1,20 @@
+%ul
+  %strong
+    =link_to 'KDM', root_path
+-if current_user.present?
+  %ul
+    =link_to "sign out", logout_path
+  %ul
+    #welcome
+      %strong
+        Welcome,
+        =current_user.email
+  %ul
+    =link_to 'products', products_path
+  %ul
+    =link_to 'orders', orders_path
+-else
+  %ul
+    =link_to "sign in", login_path
+  %ul
+    =link_to "new user", new_user_path

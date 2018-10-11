@@ -1,0 +1,9 @@
+.container-fluid
+	%h2.center
+		=link_to "Create New Product", new_product_path
+	=render 'search_products'
+	%br
+	%h1.center List of all the Products
+	#product-table
+		=render 'table_products'
+	#search-results

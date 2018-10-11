@@ -1,0 +1,14 @@
+.container-fluid
+	.row
+		.col-lg-4.offset-md-4
+			%h1.center New User
+			.frame.center
+				=form_for @user do |f|
+					=render 'errors'
+					.form-group.form-control-md
+						=f.text_field :email, placeholder: 'email'
+					.form-group.form-control-md
+						=f.password_field :password, placeholder: 'password'
+					.form-group.form-control-md
+						=f.password_field :password_confirmation, placeholder: 'confirm password'
+					=f.submit 'Submit', class:"btn"

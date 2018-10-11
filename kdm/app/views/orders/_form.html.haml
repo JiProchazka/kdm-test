@@ -1,0 +1,7 @@
+.frame
+	%h3 Order for #{current_user.email}
+	=form_for @order do |order|
+		=render 'errors'
+		.form-group.form-control-md
+			=order.text_field :name, placeholder: "name"
+		=order.submit 'Create', class: "btn"

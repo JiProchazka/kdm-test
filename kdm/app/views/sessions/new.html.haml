@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-lg-4.offset-md-4
+      %h1 Session
+      .frame
+        =form_tag sessions_path do
+          .form-group.form-control-md
+            =label_tag 'email', 'Email'
+          .form-group.form-control-md
+            =text_field_tag 'email'
+          .form-group.form-control-md
+            =label_tag 'password', 'Password'
+          .form-group.form-control-md
+            =password_field_tag 'password'
+          %div
+            =submit_tag 'Submit', class: 'btn'
